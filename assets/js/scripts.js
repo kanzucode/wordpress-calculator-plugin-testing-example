@@ -11,7 +11,7 @@
         };
 
         calculator.manageFormInput = function(){
-            $('#number_1').on('change', function(){
+            $('#number_1').on('input', function(){
                 var num_1 = parseInt( $('#number_1').val() );
                 var num_2 = parseInt( $('#number_2').val() );
                 $.ajax({
@@ -28,7 +28,7 @@
                     }
                   });
             });
-            $('#number_2').on('change', function(){
+            $('#number_2').on('input', function(){
                 var num_1 = parseInt( $('#number_1').val() );
                 var num_2 = parseInt( $('#number_2').val() );
                 $.ajax({
