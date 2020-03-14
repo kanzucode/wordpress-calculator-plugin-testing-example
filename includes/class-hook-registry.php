@@ -20,7 +20,7 @@ class Hook_Registry{
         add_action ( 'admin_menu', [ $calculator, 'register_menu' ] );
 
         //Handle calculator form submission
-        add_action( 'admin_post_kc_submit_inputs', [ $calculator, 'handle_submit_inputs' ] );
+        add_action( 'admin_post_submit_cal_inputs', [ $calculator, 'handle_submit_inputs' ] );
     }
 }
 

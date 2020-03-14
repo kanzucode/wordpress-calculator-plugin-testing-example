@@ -7,11 +7,44 @@
          */
         calculator.init = function () {
             calculator.items = [];
-            calculator.addItemToList();
+            calculator.manageFormInput();
         };
 
-        calculator.addItemToList = function(){
+        calculator.manageFormInput = function(){
+            $('#number_1').on('change', function(){
+                var num_1 = parseInt( $('#number_1').val() );
+                var num_2 = parseInt( $('#number_2').val() );
+                $.ajax({
+                    url: links.ajax_url,
+                    method: "POST",
+                    data: {
+                      number_1: num_1,
+                      number_2: num_2,
+                      action: "submit_cal_inputs"
+                    },
             
+                    success: function(result) {
+                      $('#ans').val( result );
+                    }
+                  });
+            });
+            $('#number_2').on('change', function(){
+                var num_1 = parseInt( $('#number_1').val() );
+                var num_2 = parseInt( $('#number_2').val() );
+                $.ajax({
+                    url: links.ajax_url,
+                    method: "POST",
+                    data: {
+                      number_1: num_1,
+                      number_2: num_2,
+                      action: "submit_cal_inputs"
+                    },
+            
+                    success: function(result) {
+                      $('#ans').val( result );
+                    }
+                  });
+            });
         };
 
         $(calculator.init());
