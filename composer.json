@@ -1,0 +1,9 @@
+{
+    "name": "kanzucode/shopping",
+    "description": "Manage Shopping List",
+    "type": "wordpress-plugin",
+    "require": {
+      "eftec/bladeone": "^3.30"
+    }
+  }
+  

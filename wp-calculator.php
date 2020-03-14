@@ -103,6 +103,9 @@ if (! class_exists('Kanzu_WP_Calculator')) {
         private function includes()
         {
             require_once KZ_WP_CALCULATOR_PLUGIN_DIR . '/vendor/autoload.php';
+            require_once ( KZ_WP_CALCULATOR_PLUGIN_DIR . '/includes/class-scripts.php');
+            require_once ( KZ_WP_CALCULATOR_PLUGIN_DIR . '/includes/class-calculator.php');
+            require_once ( KZ_WP_CALCULATOR_PLUGIN_DIR . '/includes/class-hook-registry.php');
         }
     }
 
