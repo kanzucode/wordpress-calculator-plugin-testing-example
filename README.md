@@ -1,4 +1,4 @@
-# wordpress-calculator-plugin-testing-example
+# WordPress calculator plugin  
 A sample WordPress plugin to illustrate automated testing using Codeception
 
 ## Installation

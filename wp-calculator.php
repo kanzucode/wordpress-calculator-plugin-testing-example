@@ -83,7 +83,7 @@ if (! class_exists('Kanzu_WP_Calculator')) {
         {
             $this->define('KZ_WP_CALCULATOR_PLUGIN_VERSION', $this->version);
             $this->define('KZ_WP_CALCULATOR_PLUGIN_DIR', plugin_dir_path(__FILE__));
-            $this->define('KZ_WP_CALCULATOR_PLUGIN_PLUGIN_URL', plugin_dir_url(__FILE__));
+            $this->define('KZ_WP_CALCULATOR_PLUGIN_URL', plugin_dir_url(__FILE__));
             $this->define('KZ_WP_CALCULATOR_PLUGIN_PLUGIN_FILE', __FILE__);
         }
 

@@ -1,22 +1,22 @@
 <?php
-
+namespace Kanzu;
 class Scripts{
 
     public function register_scripts(){
         $this->enqueue_styles();
-        $this->enqueue_scripts();
+        $this->register_admin_scripts();
         $this->localise_data();
     }
 
     public function enqueue_styles(){
-        wp_enqueue_style('kc-shopping-css', KZ_WP_CALCULATOR_PLUGIN_PLUGIN_URL.'/assets/css/styles.css' );
+        wp_enqueue_style('kc-wp-calculator-css', KZ_WP_CALCULATOR_PLUGIN_URL.'/assets/css/wp-calculator-admin.css' );
     }
 
-    public function enqueue_scripts(){
-        wp_enqueue_script('kc-shopping-js', KZ_WP_CALCULATOR_PLUGIN_PLUGIN_URL.'/assets/js/scripts.js' );
+    public function register_admin_scripts(){
+        wp_enqueue_script('kc-wp-calculator-js', KZ_WP_CALCULATOR_PLUGIN_URL.'/assets/js/wp-calculator-admin.js',['jquery'] );
     }
     
     public function localise_data(){
-        wp_localize_script('kc-shopping-js', 'links',  array( 'ajax_url' => admin_url( 'admin-post.php' ) ) );
+        wp_localize_script('kc-wp-calculator-js', 'links',  array( 'ajax_url' => admin_url( 'admin-post.php' ) ) );
     }
 }

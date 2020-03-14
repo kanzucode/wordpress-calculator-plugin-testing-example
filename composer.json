@@ -1,6 +1,6 @@
 {
-    "name": "kanzucode/shopping",
-    "description": "Manage Shopping List",
+    "name": "kanzucode/wp-calculator",
+    "description": "A sample WordPress plugin to illustrate automated testing using Codeception",
     "type": "wordpress-plugin",
     "require": {
       "eftec/bladeone": "^3.30"

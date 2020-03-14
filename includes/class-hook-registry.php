@@ -1,6 +1,5 @@
 <?php
 
-use calculator;
 
 class Hook_Registry{
 
@@ -9,18 +8,17 @@ class Hook_Registry{
     }
 
     function register_hooks(){
-        $scripts = new Scripts();
-        $calculator = new Calculator();
-
+        $scripts = new Kanzu\Scripts();
+        $calculator = new Kanzu\Calculator();
 
         //Enqueue Styles and Scripts
-        add_action( 'admin_enqueue_scripts', [ $scripts, 'register_scripts' ] );
+        add_action( 'admin_enqueue_scripts', [ $scripts, 'register_admin_scripts' ] );
 
-        //Register Espresso Menu for [EE Email Templates]
-        add_action ( 'admin_menu', [ $calculator, 'register_menu' ] );
+        //Register an admin menu item for the calculator
+        add_action ( 'admin_menu', [ $calculator, 'register_admin_menu' ] );
 
         //Handle calculator form submission
-        add_action( 'admin_post_submit_cal_inputs', [ $calculator, 'handle_submit_inputs' ] );
+        add_action( 'wp_ajax_kc_wp_cal_calculate_sum', [ $calculator, 'handle_calculator_form_submission' ] );
     }
 }
 

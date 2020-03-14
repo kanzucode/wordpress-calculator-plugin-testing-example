@@ -1,14 +1,18 @@
 <?php
 
+namespace Kanzu;
 use eftec\bladeone\BladeOne;
 
 class Calculator{
 
-    public function handle_submit_inputs(){
+    /**
+     * AJAX callback to add submitted numbers
+     */
+    public function handle_calculator_form_submission(){
         $number_1 = sanitize_text_field( $_POST['number_1'] );
         $number_2 = sanitize_text_field( $_POST['number_2'] );
-
-        echo $this->add_numbers( $number_1, $number_2 );
+        $sum = $this->add_numbers( $number_1, $number_2 );
+        wp_send_json( $sum );
     }
 
     public function add_numbers( $number_1, $number_2 ){
@@ -16,13 +20,16 @@ class Calculator{
     }
 
     /**
-     * Register Menu Item for Email Templates
+     * Register Menu Item for Calculator
      */
-    public function register_menu() {
-        add_menu_page(__('KC Calculator', 'kc-calucaltor'), __('KC Calculator', 'calculator'), 'manage_options', 'kc-calculator', [$this, 'kc_load_calculator_page'], 'dashicons-cart', null);
+    public function register_admin_menu() {
+        add_menu_page(__('KC Calculator', 'kz-wp-calculator'), __('KC Calculator', 'kz-wp-calculator'), 'manage_options', 'kz-wp-calculator', [$this, 'render_calculator_page'], 'dashicons-building', 4);
     }
 
-    public function kc_load_calculator_page(){
+    /**
+     * Render the admin page for the calculator
+     */
+    public function render_calculator_page(){
         $views = KZ_WP_CALCULATOR_PLUGIN_DIR . '/templates/';
         $cache = KZ_WP_CALCULATOR_PLUGIN_DIR . '/templates_cache/';
         $blade = new BladeOne($views, $cache, BladeOne::MODE_AUTO );
